@@ -8,7 +8,7 @@ CREATE TABLE album (
 CREATE TABLE record_label (
 	label_name VARCHAR(100) PRIMARY KEY,
 	address VARCHAR(200),
-	phone_nubmer CHAR(10),
+	phone_number CHAR(10),
 	ceo VARCHAR(100)
 );
 
@@ -80,3 +80,83 @@ CREATE TABLE playlist_song (
 	FOREIGN KEY (song_name) REFERENCES song(song_name),
 	FOREIGN KEY (album_ID) REFERENCES album(album_ID)
 );
+
+/*insert data*/
+
+-- inserting into album
+INSERT INTO album Values (1, 'Cuz I Love You','2019-04-19', 'Lizzo');
+
+-- inserting into record label
+INSERT INTO record_label Values ('Atlantic Records', '1633 Broadway, New York, NY 10019', '212-707-2000', 'Craig Kallman');
+
+-- inserting into artist
+INSERT INTO artist Values ('Lizzo', '2013-10-15', TRUE, FALSE, 'Atlantic Records');
+
+-- inserting into artist socials
+INSERT INTO artist_socials Values ('Lizzo', 'lizzobeeating', 'lizzo', 'Lizzo');
+
+-- inserting into upcoming tour 
+INSERT INTO upcoming_tour Values ('Cuz I Love You Too');
+
+-- inserting into tour stop
+INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-11-30', 'Nashville, TN');
+
+INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-01', 'Tampa, FL');
+
+INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-03', 'Fort Worth, TX');
+
+INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-05', 'San Jose, CA');
+
+INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-06', 'Inglewood, CA');
+
+INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-10', 'Indianapolis, IN');
+
+-- inserting into song
+INSERT INTO song Values ('Cuz I Love You', 1, 180, 'Pop');
+
+INSERT INTO song Values ('Juice', 1, 195, 'Pop');
+
+INSERT INTO song Values ('Tempo', 1, 175, 'Pop');
+
+INSERT INTO song Values ('Truth Hurts', 1, 173, 'Pop');
+
+
+/* deleting from databases */
+
+DELETE FROM tour_stop WHERE tour_stop_date = '2019-12-06';
+
+DELETE FROM artist_socials WHERE facebook = 'Lizzo';
+
+/* modify database */
+
+UPDATE tour_stop 
+    SET tour_stop_location = 'Columbia, MO'
+    WHERE tour_stop_location = 'Nashville, TN' IN (SELECT tour_stop_location
+                                                   FROM tour_stop
+                                                   WHERE tour_name = 'Cuz I Love You Too');
+    
+UPDATE artist_socials
+    SET instagram = 'lizzo'
+    WHERE instagram = 'lizzobeeating';
+
+/* queries */
+
+-- find_date_by_location (location is user input)
+SELECT tour_name, tour_stop_date
+FROM tour_stop
+WHERE tour_stop_location = 'Fort Worth, TX';
+
+-- get all songs on album (album ID is user input)
+SELECT song_name
+FROM song S, album A
+WHERE S.album_ID = A.album_ID AND album_ID = 1;
+
+-- get all artists from record label (label name is user input)
+SELECT artist_name
+FROM artist
+WHERE label_name = 'Atlantic Records';
+
+-- add song is in the overall add into database
+
+
+
