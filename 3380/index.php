@@ -17,10 +17,10 @@
     
     <div id="mainBox">
         <img src="soundSQL.png">
-        <h2>Welcome to SoundSQL!</h2>
+        <h2>Welcome to soundSQL!</h2>
         <p>This is the final project for Fall 2019 CS3380 by Noah Brothers, Kevin Bowers, and Rebecca Shyu.</p>
         <br>
-        <br>
+        
         <p>Click any of the tabs to search, add, delete, and modify!</p>
         
     </div>

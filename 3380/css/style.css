@@ -6,7 +6,7 @@
     padding: 0;
     list-style-type: none;
     overflow: hidden;
-    background-color: #9CD8B9;
+    background-color: #94778B;
 }
 
 #navBar li {
@@ -18,12 +18,12 @@
     font-size: 20px;
     text-align: center;
     display: block;
-    color: #808080;
+    color: white;
     text-decoration: none;
 }
 
 #navBar li a:hover:not(.activeClass) {
-    background-color: #94778B;
+    background-color: #9CD8B9;
     color: white;
 }
 
@@ -34,7 +34,7 @@
 
 body {
     text-align: center;
-    background-color: #E9DCD0;
+    background-color: #EDE9E6;
 }
 
 
@@ -49,6 +49,8 @@ body {
 
 img {
     align-content: center;
+    height: 300px;
+    width: 300px;
 }
 
 
