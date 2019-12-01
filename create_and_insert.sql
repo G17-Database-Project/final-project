@@ -92,8 +92,12 @@ INSERT INTO record_label VALUES ('Atlantic Records', '1633 Broadway, New York, N
 -- inserting into artist
 INSERT INTO artist VALUES ('Lizzo', '2013-10-15', TRUE, FALSE, 'Atlantic Records');
 
+INSERT INTO artist VALUES('Taylor Swift', '2019-08-23', TRUE, FALSE, 'Universal Music Group');
+
 -- inserting into artist socials
 INSERT INTO artist_socials VALUES ('Lizzo', 'lizzobeeating', 'lizzo', 'Lizzo');
+
+INSERT INTO artist_socials VALUES ('Taylor Swift', 'taylorswift', 'taylorswift13', 'Taylor Swift');
 
 -- inserting into upcoming tour 
 INSERT INTO upcoming_tour VALUES ('Cuz I Love You Too');
@@ -121,6 +125,12 @@ INSERT INTO song VALUES ('Tempo', 1, 175, 'Pop');
 INSERT INTO song VALUES ('Truth Hurts', 1, 173, 'Pop');
 
 INSERT INTO playlist VALUES ('My Playlist', '2019-11-30', 'Kevin');
+
+INSERT INTO song VALUES ('I Think He Knows', 1, 180, 'Pop');
+
+INSERT INTO song VALUES ('The Archer', 1, 232, 'Pop');
+
+INSERT INTO song VALUES ('Lover', 1, 222, 'Pop');
 
 /* deleting from databases */
 /*
