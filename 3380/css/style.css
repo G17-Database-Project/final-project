@@ -1,4 +1,56 @@
 /*CSS Stylesheet*/
+/*navbar*/
+
+#navBar ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #9CD8B9;
+}
+
+#navBar li {
+    float: left;
+}
+
+#navBar li a{
+    padding: 10px 15px;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color: #808080;
+    text-decoration: none;
+}
+
+#navBar li a:hover:not(.activeClass) {
+    background-color: #94778B;
+    color: white;
+}
+
+#navBar .activeClass {
+    background-color: #829298;
+    color: white;
+}
+
+body {
+    text-align: center;
+    background-color: #E9DCD0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*previous*/
 #main-wrapper{
     border-radius: 10px;
     background-color: white;

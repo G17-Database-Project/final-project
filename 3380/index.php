@@ -5,6 +5,16 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body style="background-color:#bdc3c7">
+    <div id="navBar">
+    <ul>
+        <li><a class = "activeClass" href="index.php">Home</a></li>
+        <li><a href="search.php">Search</a></li>
+        <li><a href=add.php>Add</a></li>
+        <li><a href="delete.php">Delete</a></li>
+        <li><a href="modify.php">Modify</a></li>
+    </ul>
+    </div>
+    
     <div id="main-wrapper">
         <center><h2>My Music SQL Database</h2></center>
         
