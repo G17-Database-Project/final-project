@@ -1,3 +1,6 @@
+<?php
+require 'dbconfig/config.php'
+?>
 <!DOCTYPE html>
 <html>
 <head>
