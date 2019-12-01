@@ -83,7 +83,7 @@ input {
     color: white;
 }
 
-#btn_add, #btn_delete{
+#btn_add, #btn_delete, #btn_modify{
     width: 100px;
     height: 30px;
     background-color: #94778B;
