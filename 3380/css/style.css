@@ -65,9 +65,12 @@ img {
 
 label {
     color: #808080;
+    font-size: 25px;
+}
+Label#mainLabel {
+    color: #829298;
     font-size: 35px;
 }
-
 input {
     width: 200px;
     height: 30px;
@@ -80,7 +83,13 @@ input {
     color: white;
 }
 
+#btn_add{
+    width: 100px;
+    height: 30px;
+    background-color: #94778B;
+    color: white;
+}
+
 h1{
     font-size: 40px;
 }
-
