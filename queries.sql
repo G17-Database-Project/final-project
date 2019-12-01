@@ -95,22 +95,22 @@ FROM tour_stop
 INNER JOIN upcoming_tour USING (tour_name)
 WHERE tour_name = 'Cuz I Love You Too';
 
---Deletes a song from the database
+-- Deletes a song from the database
 
 DELETE FROM song
 WHERE song_name = 'Truth Hurts';
 
---Finds the total time of a given playlist
+-- Finds the total time of a given playlist
 
 SELECT SUM(length)
-FROM playlist_song, song
-WHERE song_name=song_name, album_id=album_id
+FROM playlist_song P, song S
+WHERE P.song_name = S.song_name AND P.album_id = S.album_id
 GROUP BY playlist_name;
 
---Inserts an empty playlist into the database.
+-- Inserts an empty playlist into the database.
 
 INSERT INTO playlist
-VALUES('Noah's Playlist', now(), 'Noah Brothers');
+VALUES('Noah\'s Playlist', now(), 'Noah Brothers');
 
 
 
