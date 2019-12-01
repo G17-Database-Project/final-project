@@ -1,5 +1,5 @@
 CREATE TABLE album (
-	album_ID INTEGER PRIMARY KEY,
+	album_ID INTEGER PRIMARY KEY AUTO_INCREMENT,
 	album_name VARCHAR(100),
 	release_date DATE,
 	album_artist_name VARCHAR(100)
