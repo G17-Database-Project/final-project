@@ -84,48 +84,49 @@ CREATE TABLE playlist_song (
 /*insert data*/
 
 -- inserting into album
-INSERT INTO album Values (1, 'Cuz I Love You','2019-04-19', 'Lizzo');
+INSERT INTO album VALUES (1, 'Cuz I Love You','2019-04-19', 'Lizzo');
 
 -- inserting into record label
-INSERT INTO record_label Values ('Atlantic Records', '1633 Broadway, New York, NY 10019', '212-707-2000', 'Craig Kallman');
+INSERT INTO record_label VALUES ('Atlantic Records', '1633 Broadway, New York, NY 10019', '2127072000', 'Craig Kallman');
 
 -- inserting into artist
-INSERT INTO artist Values ('Lizzo', '2013-10-15', TRUE, FALSE, 'Atlantic Records');
+INSERT INTO artist VALUES ('Lizzo', '2013-10-15', TRUE, FALSE, 'Atlantic Records');
 
 -- inserting into artist socials
-INSERT INTO artist_socials Values ('Lizzo', 'lizzobeeating', 'lizzo', 'Lizzo');
+INSERT INTO artist_socials VALUES ('Lizzo', 'lizzobeeating', 'lizzo', 'Lizzo');
 
 -- inserting into upcoming tour 
-INSERT INTO upcoming_tour Values ('Cuz I Love You Too');
+INSERT INTO upcoming_tour VALUES ('Cuz I Love You Too');
 
 -- inserting into tour stop
-INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-11-30', 'Nashville, TN');
+INSERT INTO tour_stop VALUES ('Cuz I Love You Too', '2019-11-30', 'Nashville, TN');
 
-INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-01', 'Tampa, FL');
+INSERT INTO tour_stop VALUES ('Cuz I Love You Too', '2019-12-01', 'Tampa, FL');
 
-INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-03', 'Fort Worth, TX');
+INSERT INTO tour_stop VALUES ('Cuz I Love You Too', '2019-12-03', 'Fort Worth, TX');
 
-INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-05', 'San Jose, CA');
+INSERT INTO tour_stop VALUES ('Cuz I Love You Too', '2019-12-05', 'San Jose, CA');
 
-INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-06', 'Inglewood, CA');
+INSERT INTO tour_stop VALUES ('Cuz I Love You Too', '2019-12-06', 'Inglewood, CA');
 
-INSERT INTO tour_stop Values ('Cuz I Love You Too', '2019-12-10', 'Indianapolis, IN');
+INSERT INTO tour_stop VALUES ('Cuz I Love You Too', '2019-12-10', 'Indianapolis, IN');
 
 -- inserting into song
-INSERT INTO song Values ('Cuz I Love You', 1, 180, 'Pop');
+INSERT INTO song VALUES ('Cuz I Love You', 1, 180, 'Pop');
 
-INSERT INTO song Values ('Juice', 1, 195, 'Pop');
+INSERT INTO song VALUES ('Juice', 1, 195, 'Pop');
 
-INSERT INTO song Values ('Tempo', 1, 175, 'Pop');
+INSERT INTO song VALUES ('Tempo', 1, 175, 'Pop');
 
-INSERT INTO song Values ('Truth Hurts', 1, 173, 'Pop');
+INSERT INTO song VALUES ('Truth Hurts', 1, 173, 'Pop');
 
+INSERT INTO playlist VALUES ('My Playlist', '2019-11-30', 'Kevin');
 
 /* deleting from databases */
 /*
 DELETE FROM tour_stop WHERE tour_stop_date = '2019-12-06';
 
 DELETE FROM artist_socials WHERE facebook = 'Lizzo';
-
+*/
 
 
