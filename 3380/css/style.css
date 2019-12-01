@@ -54,7 +54,7 @@ img {
 }
 
 
-/*search page*/
+/*search, add, delete, modify pages*/
 .innerBox {
     padding: 20px;
     width: 80%;
@@ -83,7 +83,7 @@ input {
     color: white;
 }
 
-#btn_add{
+#btn_add, #btn_delete{
     width: 100px;
     height: 30px;
     background-color: #94778B;
@@ -93,3 +93,4 @@ input {
 h1{
     font-size: 40px;
 }
+
