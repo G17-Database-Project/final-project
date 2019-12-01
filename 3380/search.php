@@ -5,32 +5,43 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="inner_container">
-            <form action="search.php" method="post">
-                <label><b>Song Name</b> </label> <button id="btn_go" name="fetch_btn" type="submit">Go</button>
-                
-                <input type="text" placeholder="Enter Song Name" name="song_name">
-                <label><b>Album</b> </label>
-                <input type="number" placeholder="Enter Album ID" name="album_ID">
-                <label><b>Length</b> </label>
-                <input type="number" placeholder="Enter song length in seconds" name="length">
-                <label><b>Genre</b> </label>
-                <input type="text" placeholder="Enter genre" name="genre">
-                
-                <center>
-                    <button id="btn_insert" name="insert_btn" type="submit">Insert</button>
-                    <button id="btn_update" name="update_btn" type="submit">Update</button>
-                    <button id="btn_delete" name="delete_btn" type="submit">Delete</button>
-                </center>
-            </form>
+    <div id="navBar">
+    <ul>
+        <li><a href="index.php">Home</a></li>
+        <li><a class = "activeClass" href="search.php">Search</a></li>
+        <li><a href=add.php>Add</a></li>
+        <li><a href="delete.php">Delete</a></li>
+        <li><a href="modify.php">Modify</a></li>
+    </ul>
+    </div>
+    
+    <div id="mainBox">
+        <h1>Search here!</h1>
+        <form action="search.php" method="post">
+            <div class="innerBox">
+            <label>Search for Song</label>
+            <br>
+            <input type="text" placeholder="Enter Song Name" name="song_name">
+            <button id="btn_search" name="fetch_btn" type="submit">Go</button>
+            <br>
+            </div>
             
-            <?php
+            <div class="innerBox">
+            <label>Search for Album</label>
+            <br>
+            <input type="text" placeholder="Enter Album ID" name="album_id">
+            <button id="btn_search" name="album_btn" type="submit">Go</button>
+            <br>
+            </div>
             
-                if(isset($_POST['fetch_btn'])) {
-                    echo '<script type="text/javascript">alert("PHP is working")</script>';
-                }
-            
-            ?>
-        </div>
+            <div class="innerBox">
+            <label>Search for Artists</label>
+            <br>
+            <input type="text" placeholder="Enter Artist Name" name="artist_name">
+            <button id="btn_search" name="artist_btn" type="submit">Go</button>
+            </div>
+        </form>
+        
+    </div>
 </body>
 </html>
