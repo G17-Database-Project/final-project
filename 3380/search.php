@@ -20,39 +20,161 @@ require 'dbconfig/config.php';
     
     <div id="mainBox">
         <h1>Search here!</h1>
+
+        <?php
+            $song_name = "";
+            $album_ID = "";
+            $length = "";
+            $genre = "";
+            $album_results_ID = "";
+            $album_results_name = "";
+            $album_results_release_date = "";
+            $album_results_artist = "";
+            $artist_results_name = "";
+            $artist_results_first_release_date = "";
+            $artist_results_isBand = "";
+            $artist_results_label_name = "";
+
+
+            // Song search
+            if(isset($_POST['song_btn'])) {
+                @$song_name=$_POST['song_name'];
+                @$album_ID=$_POST['album_ID'];
+                @$length=$_POST['length'];
+                @$genre=$_POST['genre'];
+
+                if($song_name!="") {
+                    $query="SELECT * FROM song WHERE song_name='$song_name' ";
+                    $query_run=mysqli_query($con,$query) or trigger_error(mysqli_error($con)." ".$query); 
+                    if($query_run) {
+                        if(mysqli_num_rows($query_run)>0) {
+                            $row=mysqli_fetch_array($query_run,MYSQLI_ASSOC);
+                            $song_name=$row['song_name'];
+                            $album_ID=$row['album_ID'];
+                            $length=$row['length'];
+                            $genre=$row['genre'];
+                        } else {
+                            trigger_error(("No results"));
+                        }
+                    }
+                }
+
+            }
+
+            // Album search
+            if(isset($_POST['album_btn'])) {
+                @$album_name=$_POST['album_name'];
+
+                if($album_name!="") {
+                    $query="SELECT * FROM album WHERE album_name='$album_name' ";
+                    $query_run=mysqli_query($con, $query) or trigger_error(mysqli_error($con)." ".$query);
+
+                    if($query_run) {
+                        if(mysqli_num_rows($query_run)>0) {
+                            $row=mysqli_fetch_array($query_run,MYSQLI_ASSOC);
+                            //$album_results_name=mysqli_num_rows($query_run);
+                            $album_results_ID=$row['album_ID'];
+                            $album_results_name=$row['album_name'];
+                            $album_results_release_date=$row['release_date'];
+                            $album_results_artist=$row['album_artist_name'];
+
+                        } else {
+                            $album_results_name="Issue getting results";
+                        }
+                    }
+                }
+            }
+
+            // SELECT * FROM artist WHERE artist_name='$artist_name'
+
+            // Artist search
+            if(isset($_POST['artist_btn'])) {
+                @$artist_name=$_POST['artist_name'];
+
+                if($artist_name!="") {
+                    $query="SELECT * FROM artist WHERE artist_name='$artist_name'";
+                    $query_run=mysqli_query($con, $query) or trigger_error(mysqli_error($con)." ".$query);
+
+                    if($query_run) {
+                        if(mysqli_num_rows($query_run)>0) {
+                            $row=mysqli_fetch_array($query_run,MYSQLI_ASSOC);
+
+                            $artist_results_name=$row['artist_name'];
+                            $artist_results_first_release_date=$row['first_release_date'];
+
+                            if($row['solo_flag']==0) {
+                                $isBand="YES";
+                            } else {
+                                $isBand="NO";
+                            }
+                            $artist_results_isBand=$isBand;
+
+                            $artist_results_label_name=$row['label_name'];
+
+                        } else {
+                            $artist_results_name="Issue getting results";
+                        }
+                    }
+                }
+            }
+
+        ?>
+
         <form action="search.php" method="post">
             <div class="innerBox">
             <label>Search for Song</label>
-            <button id="btn_search" name="fetch_btn" type="submit">Go</button>
+            <button id="btn_search" name="song_btn" type="submit">Go</button>
             <br><br>
-            <input type="text" placeholder="Song Name" name="song_name">
+            <label>Name</label>
+            <input type="text" placeholder="Song Name" name="song_name" value="<?php echo $song_name; ?>">
             <br><br>
-            <input type="text" placeholder="Album ID" name="album_id">
+            <label>Album ID</label>
+            <input type="text" placeholder="Album ID" name="album_ID" value="<?php echo $album_ID; ?>">
             <br><br>
-            <input type="text" placeholder="Length" name="length">
+            <label>Length(seconds)</label>
+            <input type="text" placeholder="Length" name="length" value="<?php echo $length; ?>">
             <br><br>
-            <input type="text" placeholder="Genre" name="genre">
+            <label>Genre</label>
+            <input type="text" placeholder="Genre" name="genre" value="<?php echo $genre; ?>">
             </div>
             
             <div class="innerBox">
-            <label>Search for Album</label>
+            <label>Search for Album</label><button id="btn_search" name="album_btn" type="submit">Go</button>
+            <br><br>
+            <input type="text" placeholder="Enter Album Name" name="album_name">
             <br>
-            <input type="text" placeholder="Enter Album ID" name="album_id">
-            <button id="btn_search" name="album_btn" type="submit">Go</button>
+            <label>Results</label>
             <br>
-            <input hidden type="text" name="albumResults" value="Results: " readonly><br>
+            Album ID:
+            <input type="text" name="album_results_ID" placeholder="Result album ID" value="<?php echo $album_results_ID; ?>" readonly><br>
+            Album Name:
+            <input type="text" name="album_results_name" placeholder="Result album name" value="<?php echo $album_results_name; ?>" readonly><br>
+            Release Date:
+            <input type="text" name="album_results_release_date" placeholder="Result album release date" value="<?php echo $album_results_release_date; ?>" readonly><br>
+            Artist:
+            <input type="text" name="album_results_artist" placeholder="Result album artist" value="<?php echo $album_results_artist; ?>" readonly><br>
             </div>
-            
+
             <div class="innerBox">
-            <label>Search for Artists</label>
-            <br>
+            <label>Search for Artist</label><button id="btn_search" name="artist_btn" type="submit">Go</button>
+            <br><br>
             <input type="text" placeholder="Enter Artist Name" name="artist_name">
-            <button id="btn_search" name="artist_btn" type="submit">Go</button>
-            <br>  
-            <input hidden type="text" name="artResults" value="Results: " readonly><br>
+            <br>
+            <label>Results</label>
+            <br>
+            Artist Name:
+            <input type="text" name="artist_results_name" placeholder="Result artist name" value="<?php echo $artist_results_name; ?>" readonly><br>
+            First Release Date:
+            <input type="text" name="artist_results_first_release_date" placeholder="Result artist first release date" value="<?php echo $artist_results_first_release_date; ?>" readonly><br>
+            Is artist a band?
+            <input type="text" name="artist_results_isBand" placeholder="'YES' if band, 'NO' if solo" value="<?php echo $artist_results_isBand; ?>" readonly><br>
+            Label:
+            <input type="text" name="artist_results_label_name" placeholder="Result artist label" value="<?php echo $artist_results_label_name; ?>" readonly><br>
             </div>
             
         </form>
+
+        
         
         <button id = "playlist_btn" onclick="showPlaylist()">Click here to view Playlists</button>
         <br>  
