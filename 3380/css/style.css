@@ -54,7 +54,7 @@ img {
 }
 
 
-/*search page*/
+/*search, add, delete, modify pages*/
 .innerBox {
     padding: 20px;
     width: 80%;
@@ -65,9 +65,12 @@ img {
 
 label {
     color: #808080;
+    font-size: 25px;
+}
+Label#mainLabel {
+    color: #829298;
     font-size: 35px;
 }
-
 input {
     width: 200px;
     height: 30px;
@@ -75,6 +78,13 @@ input {
 
 #btn_search{
     width: 50px;
+    height: 30px;
+    background-color: #94778B;
+    color: white;
+}
+
+#btn_add, #btn_delete, #btn_modify{
+    width: 100px;
     height: 30px;
     background-color: #94778B;
     color: white;
