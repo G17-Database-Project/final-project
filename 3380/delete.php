@@ -49,8 +49,7 @@ require 'dbconfig/config.php'
                 @$delete_stop=$_POST['delete_stop'];
 
                 if($delete_stop=="" || $delete_stop_tour_name=="") {
-                    echo '<script type="text/javascript">alert("delete_stop: $delete_stop")</script>';
-                    echo '<script type="text/javascript">alert("delete_stop_tour_name: $delete_stop_tour_name")</script>';
+                    echo '<script type="text/javascript">alert("Insert values for all fields")</script>';
                 } else {
                     $query = " DELETE FROM tour_stop WHERE tour_name = '$delete_stop_tour_name' AND tour_stop_date = '$delete_stop' ";
                     $query_run=mysqli_query($con,$query) or trigger_error(mysqli_error($con)." ".$query);
@@ -62,7 +61,7 @@ require 'dbconfig/config.php'
                 @$delete_fb=$_POST['delete_fb'];
 
                 if($delete_fb=="") {
-                    echo '<script type="text/javascript">alert("Insert values for delete_fb")</script>';
+                    echo '<script type="text/javascript">alert("Insert values for Facebook name")</script>';
                 } else {
                     $query = " DELETE FROM artist_socials WHERE facebook = '$delete_fb' ";
                     $query_run=mysqli_query($con,$query) or trigger_error(mysqli_error($con)." ".$query);

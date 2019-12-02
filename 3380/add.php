@@ -26,7 +26,7 @@ require 'dbconfig/config.php'
             <div class="innerBox">
             <label id="mainLabel">Add Album:  </label>
             <br>
-            <label>Name:  </label><input type="text" placeholder="Enter Album Name" name="alb_name" required>
+            <label>Name:  </label><input type="text" placeholder="Enter Album Name" name="alb_name">
             <br>
             <label>Release Date:  </label><input type="date" placeholder="Enter Release Date" name="alb_release">
             <br>
@@ -40,7 +40,7 @@ require 'dbconfig/config.php'
             <div class="innerBox">
             <label id="mainLabel">Add Artist:  </label>
             <br>
-            <label>Name:  </label><input type="text" placeholder="Enter Artist Name" name="art_name" required>
+            <label>Name:  </label><input type="text" placeholder="Enter Artist Name" name="art_name">
             <br>
             <label>First Release Date:  </label><input type="date" placeholder="Enter First Release Date" name="art_release">
             <br>
