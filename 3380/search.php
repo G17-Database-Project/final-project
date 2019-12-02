@@ -23,12 +23,15 @@ require 'dbconfig/config.php';
         <form action="search.php" method="post">
             <div class="innerBox">
             <label>Search for Song</label>
-            <br>
-            <input type="text" placeholder="Enter Song Name" name="song_name">
             <button id="btn_search" name="fetch_btn" type="submit">Go</button>
-            <br>
-            
-            <input hidden type="text" name="songResults" value="Results: " readonly><br>
+            <br><br>
+            <input type="text" placeholder="Song Name" name="song_name">
+            <br><br>
+            <input type="text" placeholder="Album ID" name="album_id">
+            <br><br>
+            <input type="text" placeholder="Length" name="length">
+            <br><br>
+            <input type="text" placeholder="Genre" name="genre">
             </div>
             
             <div class="innerBox">
@@ -53,14 +56,18 @@ require 'dbconfig/config.php';
         
         <button id = "playlist_btn" onclick="showPlaylist()">Click here to view Playlists</button>
         <br>  
-        <p id="showPlay"><br>
+        <p id="showPlay"></p>
+        <br>
     </div>
     
     <script>
         function showPlaylist() {
             //do this to replace the html of the ID
-            document.getElementById("showPlay").innerHTML = "Playlists:<br>";
-
+            if(document.getElementById("showPlay").innerHTML=="") {
+                document.getElementById("showPlay").innerHTML = "Playlists:<br>";
+            } else {
+                document.getElementById("showPlay").innerHTML = "";
+            }
         }
     
     </script>
