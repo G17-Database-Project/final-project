@@ -41,7 +41,7 @@ WHERE album_ID = 1;
 -- Add song to playlist based on playlist name, song name and album ID
 
 INSERT IGNORE INTO playlist_song 
-VALUES ('My Playlist', 
+VALUES ('Vibes Playlist', 
             (
                 SELECT song_name
                 FROM song
@@ -102,7 +102,7 @@ WHERE song_name = 'Truth Hurts';
 
 -- Finds the total time of a given playlist
 
-SELECT SUM(length)
+SELECT playlist_name, SUM(length)
 FROM playlist_song P, song S
 WHERE P.song_name = S.song_name AND P.album_id = S.album_id
 GROUP BY playlist_name;

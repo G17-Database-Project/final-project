@@ -136,6 +136,10 @@ INSERT INTO song VALUES ('The Archer', 2, 232, 'Pop');
 
 INSERT INTO song VALUES ('Lover', 2, 222, 'Pop');
 
+INSERT INTO playlist VALUES ('Vibes Playlist', now(), 'Kevin');
+
+INSERT INTO playlist VALUES ('90\'s Jams', now(), 'Noah');
+
 /* deleting from databases */
 /*
 DELETE FROM tour_stop WHERE tour_stop_date = '2019-12-06';
