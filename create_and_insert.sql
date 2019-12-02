@@ -84,19 +84,19 @@ CREATE TABLE playlist_song (
 /*insert data*/
 
 -- inserting into album
-INSERT INTO album VALUES (1, 'Cuz I Love You','2019-04-19', 'Lizzo');
+INSERT INTO album VALUES ('Cuz I Love You','2019-04-19', 'Lizzo');
 
-INSERT INTO album VALUES (2, 'Lover', '2019-08-23', 'Lizzo');
+INSERT INTO album VALUES ('Lover', '2019-08-23', 'Taylor Swift');
 
 -- inserting into record label
-INSERT INTO record_label VALUES ('Atlantic Records', '1633 Broadway, New York, NY 10019', '2127072000', 'Craig Kallman');
+INSERT INTO record_label VALUES ('Atlantic Records', '1633 Broadway, New York, NY 10019', '212-707-2000', 'Craig Kallman');
 
-INSERT INTO record_label VALUES ('Universal Music', '222 Second Avenue, Nashville, TN', '6155247500', 'Lucian Grainge');
+INSERT INTO record_label VALUES ('Universal Music', '222 Second Avenue, Nashville, TN', '615-524-7500', 'Lucian Grainge');
 
 -- inserting into artist
 INSERT INTO artist VALUES ('Lizzo', '2013-10-15', TRUE, FALSE, 'Atlantic Records');
 
-INSERT INTO artist VALUES('Taylor Swift', '2019-08-23', TRUE, FALSE, 'Universal Music');
+INSERT INTO artist VALUES('Taylor Swift', '2006-10-24', TRUE, FALSE, 'Universal Music');
 
 -- inserting into artist socials
 INSERT INTO artist_socials VALUES ('Lizzo', 'lizzobeeating', 'lizzo', 'Lizzo');
@@ -130,11 +130,11 @@ INSERT INTO song VALUES ('Truth Hurts', 1, 173, 'Pop');
 
 INSERT INTO playlist VALUES ('My Playlist', '2019-11-30', 'Kevin');
 
-INSERT INTO song VALUES ('I Think He Knows', 1, 180, 'Pop');
+INSERT INTO song VALUES ('I Think He Knows', 2, 180, 'Pop');
 
-INSERT INTO song VALUES ('The Archer', 1, 232, 'Pop');
+INSERT INTO song VALUES ('The Archer', 2, 232, 'Pop');
 
-INSERT INTO song VALUES ('Lover', 1, 222, 'Pop');
+INSERT INTO song VALUES ('Lover', 2, 222, 'Pop');
 
 /* deleting from databases */
 /*
