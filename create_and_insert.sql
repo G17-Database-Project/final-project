@@ -128,7 +128,7 @@ INSERT INTO song VALUES ('Tempo', 1, 175, 'Pop');
 
 INSERT INTO song VALUES ('Truth Hurts', 1, 173, 'Pop');
 
-INSERT INTO playlist VALUES ('My Playlist', '2019-11-30', 'Kevin');
+INSERT INTO playlist VALUES ('My Playlist', '2019-11-30', 'Rebecca');
 
 INSERT INTO song VALUES ('I Think He Knows', 2, 180, 'Pop');
 
@@ -139,6 +139,86 @@ INSERT INTO song VALUES ('Lover', 2, 222, 'Pop');
 INSERT INTO playlist VALUES ('Vibes Playlist', now(), 'Kevin');
 
 INSERT INTO playlist VALUES ('90\'s Jams', now(), 'Noah');
+
+INSERT IGNORE INTO playlist_song 
+VALUES ('My Playlist', 
+            (
+                SELECT song_name
+                FROM song
+                WHERE song_name = 'Truth Hurts' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Cuz I Love You')
+            ),
+            (
+                SELECT album_ID
+                FROM song
+                WHERE song_name = 'Truth Hurts' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Cuz I Love You')  
+            ) 
+       );
+
+INSERT IGNORE INTO playlist_song 
+VALUES ('My Playlist', 
+            (
+                SELECT song_name
+                FROM song
+                WHERE song_name = 'Juice' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Cuz I Love You')
+            ),
+            (
+                SELECT album_ID
+                FROM song
+                WHERE song_name = 'Juice' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Cuz I Love You')  
+            ) 
+       );
+
+INSERT IGNORE INTO playlist_song 
+VALUES ('Vibes Playlist', 
+            (
+                SELECT song_name
+                FROM song
+                WHERE song_name = 'The Archer' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Lover')
+            ),
+            (
+                SELECT album_ID
+                FROM song
+                WHERE song_name = 'The Archer' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Lover')  
+            ) 
+       );
+
+INSERT IGNORE INTO playlist_song 
+VALUES ('Vibes Playlist', 
+            (
+                SELECT song_name
+                FROM song
+                WHERE song_name = 'Lover' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Lover')
+            ),
+            (
+                SELECT album_ID
+                FROM song
+                WHERE song_name = 'Lover' AND 
+                album_ID = (SELECT album_ID
+                FROM album
+                WHERE album_name = 'Lover')  
+            ) 
+       );
 
 /* deleting from databases */
 /*

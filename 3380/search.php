@@ -22,6 +22,25 @@ require 'dbconfig/config.php';
         <h1>Search here!</h1>
 
         <?php
+
+            $playlist_info = "";
+
+            $playlist_length_query="SELECT playlist_name, SUM(length) length FROM playlist_song P, song S WHERE P.song_name = S.song_name AND P.album_id = S.album_id GROUP BY playlist_name";
+            $query_run=mysqli_query($con, $playlist_length_query) or trigger_error(mysqli_error($con)." ".$playlist_length_query);
+
+            if($query_run && mysqli_num_rows($query_run)>0) {
+                while($row = mysqli_fetch_assoc($query_run)){
+
+                    // trigger_error($row['playlist_name'].$row['length']);
+                    $playlist_info .= "Name: '".$row['playlist_name']."'&nbsp;&nbsp;&nbsp;&nbsp;Length: ".$row['length']." seconds<br/>";
+
+                }
+            }
+
+                    
+
+
+
             $song_name = "";
             $album_ID = "";
             $length = "";
@@ -176,7 +195,7 @@ require 'dbconfig/config.php';
 
         
         
-        <button id = "playlist_btn" onclick="showPlaylist()">Click here to view Playlists</button>
+        <button id = "playlist_btn" onclick="showPlaylist()">Click to toggle playlist info</button>
         <br>  
         <p id="showPlay"></p>
         <br>
@@ -184,9 +203,10 @@ require 'dbconfig/config.php';
     
     <script>
         function showPlaylist() {
+            var playlistInfo = <?php echo json_encode($playlist_info); ?>;
             //do this to replace the html of the ID
             if(document.getElementById("showPlay").innerHTML=="") {
-                document.getElementById("showPlay").innerHTML = "Playlists:<br>";
+                document.getElementById("showPlay").innerHTML = "Playlists:<br/>".concat(playlistInfo);
             } else {
                 document.getElementById("showPlay").innerHTML = "";
             }
