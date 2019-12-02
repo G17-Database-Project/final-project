@@ -48,6 +48,18 @@
             
         </form>
         
+        <button id = "playlist_btn" onclick="showPlaylist()">Click here to view Playlists</button>
+        <br>  
+        <p id="showPlay"><br>
     </div>
+    
+    <script>
+        function showPlaylist() {
+            //do this to replace the html of the ID
+            document.getElementById("showPlay").innerHTML = "Playlists:<br>";
+
+        }
+    
+    </script>
 </body>
 </html>
