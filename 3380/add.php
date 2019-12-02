@@ -44,10 +44,7 @@ require 'dbconfig/config.php'
             <br>
             <label>First Release Date:  </label><input type="date" placeholder="Enter First Release Date" name="art_release">
             <br>
-            <label>Solo:  </label><input type="checkbox" placeholder="Solo" name="art_solo"> 
-            <br>
-            <label>Band:  </label>
-            <input type="checkbox" placeholder="Band" name="art_band">
+            <label>Check this box if artist is a band  </label><input type="checkbox" name="art_isBand"> 
             <br>
             <label>Record Label:  </label><input type="text" placeholder="Enter Record Label Name" name="art_label">
             <br>    
@@ -56,6 +53,52 @@ require 'dbconfig/config.php'
             <br>
             </div>
         </form>
+
+        <?php
+
+            // ADD ALBUM
+        
+            if(isset($_POST['addAlb_btn'])) {
+                @$alb_name=$_POST['alb_name'];
+                @$alb_release=$_POST['alb_release'];
+                @$alb_artist=$_POST['alb_artist'];
+
+                if($alb_name=="" || $alb_release=="" || $alb_artist=="") {
+                    echo '<script type="text/javascript">alert("Insert values for all fields")</script>';
+                } else {
+                    $query = " INSERT INTO album (album_name, release_date, album_artist_name) VALUES ('$alb_name','$alb_release', '$alb_artist')";
+                    $query_run=mysqli_query($con,$query) or trigger_error(mysqli_error($con)." ".$query);
+                }
+
+            } 
+
+
+            // ADD ARTIST
+
+            if(isset($_POST['addArt_btn'])) {
+                @$art_name=$_POST['art_name'];
+                @$art_release=$_POST['art_release'];
+                @$art_label=$_POST['art_label'];
+                if(isset($_POST['art_isBand'])) {
+                    @$solo_flag='FALSE';
+                    @$band_flag='TRUE';
+                } else {
+                    @$solo_flag='TRUE';
+                    @$band_flag='FALSE';
+                }
+
+                if($art_name=="" || $art_release=="" || $art_label=="") {
+                    echo '<script type="text/javascript">alert("Insert values for all fields")</script>';
+                } else {
+                    $query1 = "INSERT IGNORE INTO record_label (label_name) VALUES ('$art_label')";
+                    $query_run=mysqli_query($con,$query1) or trigger_error(mysqli_error($con)." ".$query1);
+                    $query2 = "INSERT INTO artist VALUES ('$art_name', '$art_release', $solo_flag, $band_flag, '$art_label')";
+                    $query_run=mysqli_query($con,$query2) or trigger_error(mysqli_error($con)." ".$query2);
+                    
+                }
+            }
+
+        ?>
         
     </div>
 </body>
