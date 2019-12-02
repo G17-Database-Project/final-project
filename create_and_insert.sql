@@ -86,13 +86,17 @@ CREATE TABLE playlist_song (
 -- inserting into album
 INSERT INTO album VALUES (1, 'Cuz I Love You','2019-04-19', 'Lizzo');
 
+INSERT INTO album VALUES (2, 'Lover', '2019-08-23', 'Lizzo');
+
 -- inserting into record label
 INSERT INTO record_label VALUES ('Atlantic Records', '1633 Broadway, New York, NY 10019', '2127072000', 'Craig Kallman');
+
+INSERT INTO record_label VALUES ('Universal Music', '222 Second Avenue, Nashville, TN', '6155247500', 'Lucian Grainge');
 
 -- inserting into artist
 INSERT INTO artist VALUES ('Lizzo', '2013-10-15', TRUE, FALSE, 'Atlantic Records');
 
-INSERT INTO artist VALUES('Taylor Swift', '2019-08-23', TRUE, FALSE, 'Universal Music Group');
+INSERT INTO artist VALUES('Taylor Swift', '2019-08-23', TRUE, FALSE, 'Universal Music');
 
 -- inserting into artist socials
 INSERT INTO artist_socials VALUES ('Lizzo', 'lizzobeeating', 'lizzo', 'Lizzo');
