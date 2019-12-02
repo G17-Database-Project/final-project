@@ -24,6 +24,8 @@
             <input type="text" placeholder="Enter Song Name" name="song_name">
             <button id="btn_search" name="fetch_btn" type="submit">Go</button>
             <br>
+            
+            <input hidden type="text" name="songResults" value="Results: " readonly><br>
             </div>
             
             <div class="innerBox">
@@ -32,6 +34,7 @@
             <input type="text" placeholder="Enter Album ID" name="album_id">
             <button id="btn_search" name="album_btn" type="submit">Go</button>
             <br>
+            <input hidden type="text" name="albumResults" value="Results: " readonly><br>
             </div>
             
             <div class="innerBox">
@@ -39,7 +42,10 @@
             <br>
             <input type="text" placeholder="Enter Artist Name" name="artist_name">
             <button id="btn_search" name="artist_btn" type="submit">Go</button>
+            <br>  
+            <input hidden type="text" name="artResults" value="Results: " readonly><br>
             </div>
+            
         </form>
         
     </div>
