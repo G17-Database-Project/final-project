@@ -73,7 +73,7 @@ require 'dbconfig/config.php';
                             $length=$row['length'];
                             $genre=$row['genre'];
                         } else {
-                            trigger_error(("No results"));
+                            trigger_error(("No song results"));
                         }
                     }
                 }
